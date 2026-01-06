@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    
+
     tools {
         nodejs "node"
     }
@@ -12,25 +12,25 @@ pipeline {
                 git branch: 'main',
                     url: 'https://github.com/KARTIKNAIK18/Demo-CICD.git'
 
-                bat 'dir'
+                sh 'ls'
             }
         }
 
         stage('Build') {
             steps {
-                bat 'npm install'
+                sh 'npm install'
             }
         }
 
         stage('Test') {
             steps {
-                bat 'npm test'
+                sh 'npm test'
             }
         }
 
         stage('Deploy') {
             steps {
-                bat 'npm start'
+                sh 'npm start'
             }
         }
     }
